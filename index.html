@@ -3,229 +3,674 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shrihari Haridas</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Shrihari Haridas - FinOps & CloudOps Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset some default styles */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Basic styling */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-primary);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
         }
 
-        /* Header styles */
-        header {
-            background-color: #333;
-            color: #fff;
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
             text-align: center;
-            padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        header h1 {
-            font-size: 2.5rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.3;
         }
 
-        /* Navigation styles */
-        nav {
-            background-color: #444;
-            padding: 10px 0;
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 30px;
+            display: block;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            background: var(--bg-primary);
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         nav ul {
             list-style: none;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            gap: 40px;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
+        nav a {
+            color: var(--text-primary);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+            background: var(--bg-primary);
+        }
+
+        .section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .skill-card {
+            background: var(--bg-primary);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .skill-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 5px 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
             font-weight: bold;
         }
 
-        /* Main content styles */
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: transparent
-            
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
         }
 
-        .intro img {
-            max-width: 350px; /* Adjust the maximum width as needed */
-            max-height: 350px; /* Adjust the maximum height as needed */
-        }
-
-        /* Contact styles */
-        
-        
-        .contact-list {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Center the icons horizontally */
-    }
-
-        .contact-list li {
-    margin-right: 10px; /* Add some spacing between icons */
-    }
-
-        .contact-list a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    border-radius: 20px;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease;
-    }
-
-        .contact-list a:hover {
-    background-color: #ddd;
-    }
-
-        .contact-list i {
-    margin-right: 5px;
-    font-size: 1.5rem;
-    }
-
-
-
-        /* Footer styles */
-        footer {
+        .stat-card {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
+            padding: 30px;
+            background: var(--bg-primary);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
-        /* Add styles for the new layout */
-.intro {
-    display: flex;
-    align-items: center;
-    gap: 100px;
-}
 
-.profile {
-    max-width: 250px;
-    max-height: 250px;
-    
-}
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
 
-.intro-content {
-    flex-grow: 1;
-}
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-top: 10px;
+        }
 
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: #d97706;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--bg-primary);
+            color: var(--primary-color);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .badges {
+                gap: 10px;
+            }
+            
+            .badge {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            nav ul {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Shrihari Haridas</h1>
-        <p>Cloud/DevOps & FinOps Engineer</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <style>
-            /* Add some spacing between lines in the About Me section */
-            .intro p,
-            .content p {
-                margin-bottom: 20px; /* Adjust the value as needed */
-            }
-        </style>
-        
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="intro">
-                <img src="https://shrihariwebsite.s3.amazonaws.com/photo.png" alt="Profile Icon" class="profile">
-                <div class="intro-content">
-                    <p>
-                        🥑 FinOps Engineer @ Illumina<br><br>
-                        🦸‍♂️ AWS Community Builder<br><br>
-                        ☁️ AWS Solution Architect<br><br>
-                        👨‍💻 Cloud/DevOps & FinOps Engineer<br><br>
-                        🚀 AWS UG Nashik Member<br><br>
-                        📜 Technical Writer<br><br>
-                        🎙️ Speaker
-                    </p>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://shrihariwebsite.s3.amazonaws.com/photo.png" alt="Shrihari Haridas" class="profile-img">
+            <h1>Shrihari Haridas</h1>
+            <p class="subtitle">FinOps & CloudOps Engineer | AWS Community Builder</p>
+            <div class="badges">
+                <span class="badge"><i class="fas fa-chart-line"></i> FinOps Engineer</span>
+                <span class="badge"><i class="fas fa-cloud"></i> CloudOps Engineer</span>
+                <span class="badge"><i class="fab fa-aws"></i> AWS Solution Architect</span>
+                <span class="badge"><i class="fas fa-users"></i> Community Builder</span>
+                <span class="badge"><i class="fas fa-microphone"></i> Speaker</span>
+                <span class="badge"><i class="fas fa-pen"></i> Technical Writer</span>
             </div>
-            <div class="content">
-                <p>
-                    I'm a seasoned DevOps Engineer with a strong background in cloud technologies, specializing in AWS. My journey in the world of IT has been multifaceted — from architecting cloud solutions as an AWS Solution Architect to rolling up my sleeves as a hands-on Cloud & DevOps Engineer. I thrive on solving complex problems and transforming ideas into reality.  
-                    Additionally, I bring extensive experience in FinOps, working across multiple cloud platforms like AWS and Azure to optimize cloud usage and costs. Collaborating closely with AWS and organizational stakeholders, I analyze requirements to drive cloud optimization strategies that align with business goals. My expertise extends to implementing cloud security tools such as AWS WAF and AWS Trusted Advisor, automating processes with AWS Lambda and Python, and preparing detailed plans and roadmaps to achieve cost efficiency and scalability.
-                </p>
-                <p>
-                    As an active AWS Community Builder, I'm dedicated to keeping pace with the latest trends and best practices in cloud computing and DevOps. My passion for knowledge sharing extends beyond code. I'm also a Technical Writer, distilling complex concepts into clear, accessible content. Moreover, I take the stage as a Speaker, sharing insights and experiences with fellow tech enthusiasts.
-                </p>
-                <p>
-                    In addition to my roles, my skill set encompasses a wide range of cloud platforms, containerization technologies, scripting languages, and DevOps tools. I believe in the power of automation, continuous integration, and infrastructure as code (IAC) to streamline workflows and deliver robust, scalable solutions. My experience includes designing secure microservices architectures, implementing CI/CD pipelines, and managing AWS services for performance, security, scalability and Cloud optimization.
-                </p>
-            </div>            
-        </section>
-        
-        
-        <section id="resume">
-            <h2>Resume</h2>
-            <p>Download my resume to learn more about my qualifications and experience:</p>
-            <a href="https://shrihariwebsite.s3.amazonaws.com/Shrihari+Resume.pdf" target="_blank" class="resume-link">Download Resume</a>
-        </section>
-        
-        <div style="margin-bottom: 20px;"></div>
+        </div>
+    </section>
 
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <div style="margin-bottom: 20px;"></div>
-            <ul class="contact-list">
-                <li>
-                    <a href="https://www.linkedin.com/in/shrihariharidas" target="_blank">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                </li>
-                <li>
-                    <a href="https://medium.com/@shrihariharidas73" target="_blank">
-                        <i class="fab fa-medium"></i> Medium
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:haridasshrihari@gmail.com">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/haridasshrihari" target="_blank">
-                        <i class="fab fa-twitter"></i> Twitter
-                    </a>
-                </li>
-            </ul>
-        </section>
-        
-        
+    <!-- Navigation -->
+    <div class="nav-sticky">
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+                    <li><a href="#stats"><i class="fas fa-chart-bar"></i> Stats</a></li>
+                    <li><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div>
+                    <div class="highlight-box">
+                        <h3><i class="fas fa-rocket"></i> Current Role</h3>
+                        <p>FinOps Engineer at Illumina, optimizing cloud costs and implementing financial governance across AWS and Azure platforms.</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">5+</span>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">50+</span>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">3</span>
+                            <div class="stat-label">Cloud Platforms</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <p>I'm a seasoned FinOps and CloudOps Engineer with extensive experience in cloud cost optimization, financial governance, and infrastructure automation. My expertise spans across AWS, Azure, and multi-cloud environments, where I help organizations achieve significant cost savings while maintaining operational excellence.</p>
+                    
+                    <p>As a FinOps Engineer at Illumina, I collaborate with cross-functional teams to implement cloud financial management best practices, analyze spending patterns, and develop cost optimization strategies. My work involves automating cost monitoring, implementing governance policies, and providing actionable insights to stakeholders.</p>
+                    
+                    <p>Beyond my technical role, I'm an active AWS Community Builder, sharing knowledge through technical writing and speaking engagements. I'm passionate about helping organizations navigate their cloud transformation journey while maintaining cost efficiency and operational excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Core Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="skill-title">FinOps & Cost Optimization</h3>
+                    <ul class="skill-list">
+                        <li>Cloud Cost Management</li>
+                        <li>Financial Governance</li>
+                        <li>Budget Planning & Forecasting</li>
+                        <li>Cost Allocation & Chargeback</li>
+                        <li>Reserved Instance Optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                    <h3 class="skill-title">CloudOps & Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>AWS, Azure, Multi-Cloud</li>
+                        <li>Infrastructure as Code (Terraform)</li>
+                        <li>Container Orchestration (K8s)</li>
+                        <li>CI/CD Pipeline Automation</li>
+                        <li>Monitoring & Observability</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="skill-title">Security & Compliance</h3>
+                    <ul class="skill-list">
+                        <li>AWS WAF & Security Tools</li>
+                        <li>Identity & Access Management</li>
+                        <li>Compliance Frameworks</li>
+                        <li>Security Automation</li>
+                        <li>Risk Assessment</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="skill-title">Development & Automation</h3>
+                    <ul class="skill-list">
+                        <li>Python, Bash Scripting</li>
+                        <li>AWS Lambda Functions</li>
+                        <li>API Development</li>
+                        <li>Database Management</li>
+                        <li>Version Control (Git)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="section">
+        <div class="container">
+            <h2 class="section-title">Impact & Achievements</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">30%</span>
+                    <div class="stat-label">Average Cost Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <div class="stat-label">Automation Scripts</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <div class="stat-label">System Monitoring</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">99.9%</span>
+                    <div class="stat-label">Uptime Achievement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Optimize Your Cloud Costs?</h2>
+            <p>Let's discuss how FinOps and CloudOps can transform your cloud strategy</p>
+            <a href="https://shrihariwebsite.s3.amazonaws.com/Shrihari+Resume.pdf" target="_blank" class="btn">
+                <i class="fas fa-download"></i> Download Resume
+            </a>
+            <a href="#contact" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/shrihariharidas" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://medium.com/@shrihariharidas73" target="_blank" class="social-link" title="Medium">
+                    <i class="fab fa-medium"></i>
+                </a>
+                <a href="mailto:haridasshrihari@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://twitter.com/haridasshrihari" target="_blank" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/shrihariharidas" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        &copy; 2025 shrihariharidas
+        <div class="container">
+            <p>&copy; 2025 Shrihari Haridas. All rights reserved.</p>
+            <p>FinOps & CloudOps Engineer | Optimizing Cloud Costs & Operations</p>
+        </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav-sticky');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalValue = stat.textContent;
+                        stat.textContent = '0';
+                        
+                        const increment = () => {
+                            const current = parseInt(stat.textContent);
+                            const target = parseInt(finalValue);
+                            const step = target / 50;
+                            
+                            if (current < target) {
+                                stat.textContent = Math.ceil(current + step);
+                                setTimeout(increment, 30);
+                            } else {
+                                stat.textContent = finalValue;
+                            }
+                        };
+                        
+                        increment();
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stats-grid').forEach(grid => {
+            observer.observe(grid);
+        });
+    </script>
 </body>
 </html>
